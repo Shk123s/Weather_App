@@ -1,0 +1,71 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+#nav{
+    background-color: black !important;
+}
+#footer{
+    background-color:rgba(var(--bs-body-color-rgb), 0.03) !important;
+}
+#footer span{
+    color: rgb(0, 0, 0) !important;
+}
+#signupbtn {
+    border: 2px solid black ;
+    color: black;
+}
+#signupbtn:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid rgb(229, 228, 226) ;
+}
+#getstartedbtn {
+    border: 2px solid black !important;
+    color: black; 
+    background-color: white  ;
+}
+#getstartedbtn:hover {
+    background-color: black;
+    color: white;
+
+}
+#contactusbtn{
+    border: 2px solid black !important;
+    color: black; 
+    background-color: white  ;
+}
+#contactusbtn:hover {
+    background-color: black;
+    color: white;
+
+}
+
+#cardpremium{
+    /* border: 2px solid black !important; */
+    color: black; 
+
+}
+#cardpremiumhead
+{   border: 2px solid rgb(224, 224, 224) !important;
+    background-color: whitesmoke !important;
+    color: black;
+   
+}
+#cardpremiumhead h4 {
+    color: black;
+}
+.btnbrd-color {
+    border: 2px solid white !important;
+    color: white !important ;
+}
+.btnbrd-color:hover {
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid black !important;
+}
+.table-responsive {
+    border: 2px solid whitesmoke !important;
+    border-radius: 10px  !important;
+}

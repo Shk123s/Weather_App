@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    <nav  id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Weather Application</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+             
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  About
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-disabled="true">Guide</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input  id="city" class="form-control me-2" type="search" id="mysearch"  placeholder="Enter Your City Name" aria-label="Search">
+              <button   class=" btnbrd-color btn btn-outline-success" type="submit" id="submit"  >Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>  
+
+      <div class="container mt-5">
+          <h1 id="headweath"  class="text-center">Weather for <span id="cityName"></span></h1>
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                  <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Temperatures <img src="images/tem.png" width="30px" alt="">  </h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title"><span id="temp"></span><small class="text-muted fw-light"><b>°C</b></small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <!-- <li>Temp :<span id="temp"></span></li> -->
+                      <li>Min_temp:<span id="min_temp"></span></li>
+                      <li>Max_temp :<span id="max_temp"></span></li>
+                      <li>Humidity :<span id="humidity"></span></li>
+                  
+                    </ul>
+                    <button id="signupbtn" type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                  <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Wind <img src="images/wind.png" width="30px" alt=""></h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title"><span id="wind_speed"></span><small class="text-muted fw-light"> km/h </small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Cloud_pct : <span id="cloud_pct"></span></li>
+                      <li>Feels_like: <span id="feels_like"></span></li>
+                      <!-- <li>Wind_speed :<span id="wind_speed"></span></li> -->
+                      <li>Wind_degrees: <span id="wind_degrees"></span></li>
+                    </ul>
+                    <button type="button"id="getstartedbtn" class="w-100 btn btn-lg btn-primary">Get started</button>
+                  </div>
+                </div>
+              </div>
+              <div  class="col">
+                <div class="card mb-4 rounded-3 shadow-sm rounded-3 ">
+                  <div  id="cardpremiumhead" id="suncardhead" class="card-header py-3 text-white  ">
+                    <h4 class="my-0 fw-normal">Sun <img src="images/sun.png" width="30px" alt=""></h4>
+                  </div>
+                  <div id="cardpremium" class="card-body ">
+                    <h1 class="card-title pricing-card-title">$2<small class="text-muted fw-light">/mo</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Sunrise:<span id="sunrise"></span></li>
+                      <li>Sunset:<span id="sunset"></span></li>
+                      <li>Phone and email support</li>
+                      <!-- <li>Help center access</li> -->
+                    </ul>
+                    <button id="contactusbtn" type="button" class="w-100 btn btn-lg btn-primary">Buy</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <h2 class="display-6 text-center mb-4">Most Search City</h2>
+        
+            <div class="table-responsive">
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th style="width:12%;">City</th>
+                    <th style="width: 22%;">cloud_pct</th>
+                    <th style="width: 22%;"> Temp </th>
+                    <th style="width: 22%;">Feels_like</th>
+                    <th style="width: 22%;">  Humidity </th>
+                    <th style="width: 22%;"> Min_Temp </th>
+                    <th style="width: 22%;">Max_Temp </th>
+                    <th style="width: 22%;">  Wind_Speed</th>
+                    <th style="width: 22%;">  Wind_Degrees  </th>
+                    <th style="width: 22%;"> Sunrise</th>
+                    <th style="width: 22%;">  Sunset</th>
+
+  
+ 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="text-start text-center">Boston</th>
+                    <td id="BostCloud_pct"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="BostTemp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="BostFeels_like"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="BostHumidity"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="BostMin_Temp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="BostMax_Temp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="BostWind_Speed"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="BostWind_Degrees"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="BostSunrise"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="BostSunset"><svg cliass="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start text-center ">Delhi</th>
+                    <td id="DelhiCloud_pct"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="DelhiTemp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="DelhiFeels_like"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="DelhiHumidity"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="DelhiMin_Temp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="DelhiMax_Temp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="DelhiWind_Speed"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="DelhiWind_Degrees"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="DelhiSunrise"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="DelhiSunset"><svg cliass="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                  </tr>
+                </tbody>
+        
+                <tbody>
+                  <tr>
+                    <th scope="row" class="text-start text-center">Jaipur</th>
+                    <td id="JaipurCloud_pct"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="JaipurTemp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="JaipurFeels_like"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="JaipurHumidity"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="JaipurMin_Temp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="JaipurMax_Temp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="JaipurWind_Speed"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="JaipurWind_Degrees"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="JaipurSunrise"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="JaipurSunset"><svg cliass="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start text-center">Goa</th>
+                    
+                    <td id="GoaCloud_pct"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="GoaTemp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="GoaFeels_like"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="GoaHumidity"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="GoaMin_Temp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="GoaMax_Temp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="GoaWind_Speed"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="GoaWind_Degrees"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="GoaSunrise"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="GoaSunset"><svg cliass="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start text-center">Paris</th>
+                    
+                    <td id="parisCloud_pct"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="parisTemp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="parisFeels_like"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="parisHumidity"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="parisMin_Temp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="parisMax_Temp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="parisWind_Speed"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="parisWind_Degrees"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="parisSunrise"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="parisSunset"><svg cliass="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start text-center">London</th>
+                    <td id="LondonCloud_pct"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="LondonTemp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="LondonFeels_like"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="LondonHumidity"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="LondonMin_Temp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="LondonMax_Temp"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="LondonWind_Speed"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="LondonWind_Degrees"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="LondonSunrise"><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td id="LondonSunset"><svg cliass="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </main>
+      </div>
+      <footer id="footer" class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+          <span id="textfooter" class="text-muted">WeatherApp@coder.gmail.com</span>
+        </div>
+      </footer>
+</body>
+<script src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</html>
